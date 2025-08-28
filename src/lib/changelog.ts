@@ -11,6 +11,49 @@ export interface ChangelogEntry {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "2.5.1",
+    date: "2025-08-28",
+    added: [
+      // 无新增内容
+    ],
+    changed: [
+    "优化收藏状态检测,减少数据库请求",
+    "优化搜索筛选展示逻辑",
+    "边缘点击不触发播放"
+    ],
+    fixed: [
+    "修复动漫番剧详情页面跳转"
+    ]
+  },
+  {
+    version: "2.4.7",
+    date: "2025-08-26",
+    added: [
+    "搜索结果添加筛选功能"
+    ],
+    changed: [
+      // 无变更内容
+    ],
+    fixed: [
+    "主页展示评分",
+    "搜索结果展示年份"
+    ]
+  },
+  {
+    version: "2.4.0",
+    date: "2025-08-25",
+    added: [
+      // 无新增内容
+    ],
+    changed: [
+    "站点配置可直接修改",
+    "进一步优化搜索速度"
+    ],
+    fixed: [
+    "修复搜索结果只能打开同一个"
+    ]
+  },
+  {
     version: "2.3.6",
     date: "2025-08-24",
     added: [
