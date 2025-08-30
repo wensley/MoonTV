@@ -696,7 +696,8 @@ function PlayPageClient() {
         }
       }
     
-      const cacheKey = `${CACHE_KEY_PREFIX}${query.trim().toLowerCase()}`;
+      // 生成更唯一的缓存键，避免影片名字相同时的缓存冲突
+      const cacheKey = `${CACHE_KEY_PREFIX}${query.trim().toLowerCase()}_${videoYearRef.current || ''}_${searchType || ''}`;
       let aggregatedResults: SearchResult[] = [];
     
       // 提前声明
@@ -747,8 +748,8 @@ function PlayPageClient() {
                     const filteredResults: SearchResult[] = data.pageResults.filter(
                       (r: SearchResult) => {
                         const titleMatch =
-                          r.title.replaceAll(' ', '').toLowerCase() ===
-                          videoTitleRef.current.replaceAll(' ', '').toLowerCase();
+                          r.title.trim().replace(/\s+/g, ' ').toLowerCase() ===
+                          videoTitleRef.current.trim().replace(/\s+/g, ' ').toLowerCase();
                         const yearMatch = videoYearRef.current
                           ? r.year.toLowerCase() ===
                             videoYearRef.current.toLowerCase()
